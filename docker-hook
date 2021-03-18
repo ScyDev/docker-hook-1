@@ -39,6 +39,7 @@ class RequestHandler(BaseHTTPRequestHandler):
 
         # Check if the secret URL was called
         token = args.token or os.environ.get("DOCKER_AUTH_TOKEN")
+        logging.info("Token: %s", token)
         if token == self.path[1:]:
             logging.info("Start executing '%s'" % args.cmd)
             try:
